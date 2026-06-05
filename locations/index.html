@@ -610,13 +610,26 @@
     }
     .other-loc-card {
       background: var(--oe-white);
-      padding: 26px 18px 22px;
+      padding: 0;
       text-align: center;
       text-decoration: none;
       color: inherit;
       border-top: 3px solid transparent;
       transition: border-top-color 0.2s, transform 0.15s;
       position: relative;
+      overflow: hidden;
+    }
+    .other-loc-card .loc-map {
+      display: block;
+      width: 100%;
+      height: 132px;
+      object-fit: cover;
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+      background: var(--oe-light);
+    }
+    .other-loc-card .loc-card-body {
+      padding: 18px 18px 22px;
     }
     .other-loc-card:hover {
       border-top-color: var(--oe-blue);
@@ -807,34 +820,46 @@
   <div class="wrap">
     <div class="other-locations-grid">
       <a href="/gta/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Greater Toronto Area</h4>
-        <p>550 Bowes Road, Vaughan</p>
+        <img class="loc-map" src="maps/oe-yard-gta.png" alt="Map showing the OE Utility Services yard in Vaughan" />
+        <div class="loc-card-body">
+          <h4>Greater Toronto Area</h4>
+          <p>550 Bowes Rd, Vaughan ON L4K 1K2</p>
+        </div>
       </a>
       <a href="/durham/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Durham</h4>
-        <p>19 Courtice Ct, Courtice</p>
+        <img class="loc-map" src="maps/oe-yard-durham.png" alt="Map showing the OE Utility Services yard in Courtice" />
+        <div class="loc-card-body">
+          <h4>Durham</h4>
+          <p>19 Courtice Ct, Courtice ON L1E 2T4</p>
+        </div>
       </a>
       <a href="/hamilton/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Hamilton</h4>
-        <p>450 Sherman Ave. North, Hamilton</p>
+        <img class="loc-map" src="maps/oe-yard-hamilton.png" alt="Map showing the OE Utility Services yard in Hamilton" />
+        <div class="loc-card-body">
+          <h4>Hamilton</h4>
+          <p>450 Sherman Ave. North, Hamilton ON L8L 8J6</p>
+        </div>
       </a>
       <a href="/barrie/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Barrie</h4>
-        <p>72 Sluse Rd, Holland Landing</p>
+        <img class="loc-map" src="maps/oe-yard-barrie.png" alt="Map showing the OE Utility Services yard in Holland Landing" />
+        <div class="loc-card-body">
+          <h4>Barrie</h4>
+          <p>72 Sluse Rd, Holland Landing, Barrie ON L9N 1G8</p>
+        </div>
       </a>
       <a href="/london/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>London</h4>
-        <p>181 Donnybrook Dr, Thames Centre</p>
+        <img class="loc-map" src="maps/oe-yard-london.png" alt="Map showing the OE Utility Services yard in Thames Centre" />
+        <div class="loc-card-body">
+          <h4>London</h4>
+          <p>181 Donnybrook Dr, Thames Centre ON N0L 1G5</p>
+        </div>
       </a>
       <a href="/ottawa/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Ottawa</h4>
-        <p>950 Moodie Dr, Nepean</p>
+        <img class="loc-map" src="maps/oe-yard-ottawa.png" alt="Map showing the OE Utility Services yard in Nepean" />
+        <div class="loc-card-body">
+          <h4>Ottawa</h4>
+          <p>950 Moodie Dr, Nepean ON K2R 1H3</p>
+        </div>
       </a>
     </div>
   </div>
