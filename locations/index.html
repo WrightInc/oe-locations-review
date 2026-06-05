@@ -347,6 +347,20 @@
     .body-text strong { color:var(--oe-text); }
     .two-col { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
 
+    /* Intro + overview map split */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      gap: 48px;
+      align-items: center;
+    }
+    .intro-map { display: flex; justify-content: center; }
+    .intro-map-inner { width: 100%; max-width: 480px; }
+    .intro-map-inner svg { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) {
+      .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
     /* Stat cards */
     .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
     .stat-card { background:var(--oe-white); border-top:4px solid var(--oe-blue); padding:26px 22px; }
@@ -610,13 +624,26 @@
     }
     .other-loc-card {
       background: var(--oe-white);
-      padding: 26px 18px 22px;
+      padding: 0;
       text-align: center;
       text-decoration: none;
       color: inherit;
       border-top: 3px solid transparent;
       transition: border-top-color 0.2s, transform 0.15s;
       position: relative;
+      overflow: hidden;
+    }
+    .other-loc-card .loc-map {
+      display: block;
+      width: 100%;
+      height: 132px;
+      object-fit: cover;
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+      background: var(--oe-light);
+    }
+    .other-loc-card .loc-card-body {
+      padding: 18px 18px 22px;
     }
     .other-loc-card:hover {
       border-top-color: var(--oe-blue);
@@ -795,10 +822,37 @@
 <!-- INTRO -->
 <section class="section">
   <div class="wrap">
-    <div class="eyebrow">Our Ontario Locations</div>
-    <h2 class="stitle">Find Your Nearest OE Yard</h2>
-    <div class="blue-rule"></div>
-    <p class="body-text">From our head office in Vaughan to regional yards across Southern and Eastern Ontario, OE crews and equipment are positioned to respond quickly wherever Customers need us. Select a location below for local details, services, and contact information.</p>
+    <div class="intro-grid">
+      <div class="intro-text">
+        <div class="eyebrow">Our Ontario Locations</div>
+        <h2 class="stitle">Find Your Nearest OE Yard</h2>
+        <div class="blue-rule"></div>
+        <p class="body-text">From our head office in Vaughan to regional yards across Southern and Eastern Ontario, OE crews and equipment are positioned to respond quickly wherever Customers need us. Select a location below for local details, services, and contact information.</p>
+      </div>
+      <div class="intro-map">
+        <div class="intro-map-inner">
+          <svg width="100%" viewBox="0 0 680 520" role="img" xmlns="http://www.w3.org/2000/svg" aria-label="Map of OE Utility Services locations across southern and eastern Ontario">
+          <rect x="0" y="0" width="680" height="520" fill="#EAEAE8"/>
+          <path d="M40 70 L300 55 L470 90 L560 70 L640 130 L600 210 L470 250 L380 320 L300 300 L150 360 L60 300 Z" fill="#DDE3E6" stroke="#C4CBCE" stroke-width="1"/>
+          <path d="M150 360 L300 300 L380 320 L300 360 L260 430 L160 470 L70 440 L60 380 Z" fill="#DDE3E6" stroke="#C4CBCE" stroke-width="1"/>
+          <path d="M60 300 L150 360 L60 380 L40 340 Z M380 320 L470 250 L600 210 L560 300 L470 340 L400 360 Z" fill="#FFFFFF"/>
+          <path d="M260 430 L400 360 L470 340 L560 300 L640 320 L640 470 L300 470 L260 450 Z" fill="#FFFFFF"/>
+          <path d="M60 380 L160 470 L70 440 L40 400 Z" fill="#FFFFFF"/>
+          <path d="M70 310 L290 290 L370 308 L300 345 L250 412 L165 450 L95 422 L78 358 Z" fill="#9FC5DE" fill-opacity="0.55" stroke="#5A93B8" stroke-width="1.2"/>
+          <path d="M580 95 L630 130 L596 200 L500 232 L520 150 Z" fill="#9FC5DE" fill-opacity="0.55" stroke="#5A93B8" stroke-width="1.2"/>
+          <path d="M370 308 L500 232 L596 200 L560 270 L460 300 L385 318 Z" fill="#9FC5DE" fill-opacity="0.3" stroke="#5A93B8" stroke-width="0.8" stroke-dasharray="4 4"/>
+          <text x="490" y="400" fill="#6E7B82" font-style="italic" font-size="13" font-family="sans-serif">Lake Ontario</text>
+          <text x="120" y="455" fill="#6E7B82" font-style="italic" font-size="13" font-family="sans-serif">Lake Erie</text>
+          <g><circle cx="195" cy="345" r="7" fill="#0F2A52" stroke="#FFFFFF" stroke-width="2"/><path d="M188 350 L202 350 L195 366 Z" fill="#0F2A52"/><circle cx="195" cy="345" r="2.5" fill="#FFFFFF"/><text x="195" y="328" text-anchor="middle" fill="#0F2A52" font-weight="bold" font-size="13" font-family="sans-serif">Greater Toronto Area</text></g>
+          <g><circle cx="275" cy="330" r="7" fill="#0F2A52" stroke="#FFFFFF" stroke-width="2"/><path d="M268 335 L282 335 L275 351 Z" fill="#0F2A52"/><circle cx="275" cy="330" r="2.5" fill="#FFFFFF"/><text x="300" y="334" text-anchor="start" fill="#0F2A52" font-weight="bold" font-size="13" font-family="sans-serif">Durham &amp; Area</text></g>
+          <g><circle cx="180" cy="380" r="7" fill="#0F2A52" stroke="#FFFFFF" stroke-width="2"/><path d="M173 385 L187 385 L180 401 Z" fill="#0F2A52"/><circle cx="180" cy="380" r="2.5" fill="#FFFFFF"/><text x="155" y="402" text-anchor="end" fill="#0F2A52" font-weight="bold" font-size="13" font-family="sans-serif">Hamilton &amp; Area</text></g>
+          <g><circle cx="190" cy="290" r="7" fill="#0F2A52" stroke="#FFFFFF" stroke-width="2"/><path d="M183 295 L197 295 L190 311 Z" fill="#0F2A52"/><circle cx="190" cy="290" r="2.5" fill="#FFFFFF"/><text x="190" y="273" text-anchor="middle" fill="#0F2A52" font-weight="bold" font-size="13" font-family="sans-serif">Barrie &amp; Area</text></g>
+          <g><circle cx="105" cy="400" r="7" fill="#0F2A52" stroke="#FFFFFF" stroke-width="2"/><path d="M98 405 L112 405 L105 421 Z" fill="#0F2A52"/><circle cx="105" cy="400" r="2.5" fill="#FFFFFF"/><text x="105" y="438" text-anchor="middle" fill="#0F2A52" font-weight="bold" font-size="13" font-family="sans-serif">London &amp; Area</text></g>
+          <g><circle cx="560" cy="140" r="7" fill="#0F2A52" stroke="#FFFFFF" stroke-width="2"/><path d="M553 145 L567 145 L560 161 Z" fill="#0F2A52"/><circle cx="560" cy="140" r="2.5" fill="#FFFFFF"/><text x="560" y="123" text-anchor="middle" fill="#0F2A52" font-weight="bold" font-size="13" font-family="sans-serif">Ottawa &amp; Area</text></g>
+          </svg>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -807,34 +861,46 @@
   <div class="wrap">
     <div class="other-locations-grid">
       <a href="/gta/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Greater Toronto Area</h4>
-        <p>550 Bowes Road, Vaughan</p>
+        <img class="loc-map" src="maps/oe-yard-gta.png" alt="Map showing the OE Utility Services yard in Vaughan" />
+        <div class="loc-card-body">
+          <h4>Greater Toronto Area</h4>
+          <p>550 Bowes Rd, Vaughan ON L4K 1K2</p>
+        </div>
       </a>
       <a href="/durham/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Durham</h4>
-        <p>19 Courtice Ct, Courtice</p>
+        <img class="loc-map" src="maps/oe-yard-durham.png" alt="Map showing the OE Utility Services yard in Courtice" />
+        <div class="loc-card-body">
+          <h4>Durham</h4>
+          <p>19 Courtice Ct, Courtice ON L1E 2T4</p>
+        </div>
       </a>
       <a href="/hamilton/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Hamilton</h4>
-        <p>450 Sherman Ave. North, Hamilton</p>
+        <img class="loc-map" src="maps/oe-yard-hamilton.png" alt="Map showing the OE Utility Services yard in Hamilton" />
+        <div class="loc-card-body">
+          <h4>Hamilton</h4>
+          <p>450 Sherman Ave. North, Hamilton ON L8L 8J6</p>
+        </div>
       </a>
       <a href="/barrie/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Barrie</h4>
-        <p>72 Sluse Rd, Holland Landing</p>
+        <img class="loc-map" src="maps/oe-yard-barrie.png" alt="Map showing the OE Utility Services yard in Holland Landing" />
+        <div class="loc-card-body">
+          <h4>Barrie</h4>
+          <p>72 Sluse Rd, Holland Landing, Barrie ON L9N 1G8</p>
+        </div>
       </a>
       <a href="/london/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>London</h4>
-        <p>181 Donnybrook Dr, Thames Centre</p>
+        <img class="loc-map" src="maps/oe-yard-london.png" alt="Map showing the OE Utility Services yard in Thames Centre" />
+        <div class="loc-card-body">
+          <h4>London</h4>
+          <p>181 Donnybrook Dr, Thames Centre ON N0L 1G5</p>
+        </div>
       </a>
       <a href="/ottawa/" class="other-loc-card">
-        <div class="pin-icon">📍</div>
-        <h4>Ottawa</h4>
-        <p>950 Moodie Dr, Nepean</p>
+        <img class="loc-map" src="maps/oe-yard-ottawa.png" alt="Map showing the OE Utility Services yard in Nepean" />
+        <div class="loc-card-body">
+          <h4>Ottawa</h4>
+          <p>950 Moodie Dr, Nepean ON K2R 1H3</p>
+        </div>
       </a>
     </div>
   </div>
